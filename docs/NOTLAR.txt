@@ -1,0 +1,29 @@
+DEPLOYMENT Notları :
+- Deployment icin oncelikle DB ve tablo create edilir.
+- "Docs"  altinda "Script.sql"  scripti çalıştırılarak tablo yaratılır
+  MS SQL Server 2016 kullanıldı ve SSMS uzerinde testler yapıldı.
+- Kaynak kodlar VS2019 ile açılabilir: 
+  "WeatherAPI\WebApplication1\BigDataTeknolojiWeather.sln" ile proje açılabilir.
+- Monitorlerme uygulaması için aşağıdaki exe kullanılabilir
+  "BigDataTeknoloji.UI\bin\Debug\netcoreapp3.1\Weather.UI.exe"
+
+DB Notları :
+- DAL katmanı icin EF orm tool kullanildi.
+- appsettings.json  icinde "BigDataTeknolojiTESTDatabase"  connection string kullanildi
+  BigDataTeknolojiTEST  yerine gerekirse farkli bir DB uzerinde de script calistirilabilir.
+
+
+Web API Notları :
+- Aşağıdaki URL deki gibi  şehir bazlı API bilgileri alınabilir :
+  http://localhost:50217/api/WeatherApi/GetWeatherData/Ankara
+  http://localhost:50217/api/WeatherApi/GetWeatherData/Antalya
+  
+
+
+Bilinen bug lar (Known Issues)  :
+- Hakkari, Şırnak gibi şehirler için ; "locationiq" API içinde Dakika/Saat bazlı sıcaklık verilerinde hata olduğu görüldü.
+  Bu nednele JSON classalrı içinde bu alanalr çıakrtıldı.
+  Diğer tüm JSON api alanalrı kullanıma hazır. 
+- DB için "weatherRecords" tablosunda sadece günlük/haftalık sıcaklık verileri tutuldu.
+  Proje basit bir entity üzerinden planlandıği için tüm JSON verileri tabloya yansıtılmadı.
+
